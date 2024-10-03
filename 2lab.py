@@ -23,6 +23,7 @@ def generate_keys(p, q): #генерация открытого и закрыт�
     print('e:', e)
     d = pow(e, -1, f)
     print('d:', d)
+    print('n:', n)
     return (e, n), (d, n)
 
 def code_RSA(public_key, message):
