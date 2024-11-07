@@ -20,23 +20,14 @@ def generate_random_numbers(key, length):
 def crypt(text, key):
   numbers = generate_random_numbers(key, len(text))
   cryptedList = []
-  for t, s in zip(text, numbers):
+  for t, s in zip(text, numbers): 
     cryptedList.append(chr(xor(ord(t), s)))
   newText = ''.join(cryptedList)
   return newText
-
-def decrypt(text, key):
-  numbers = generate_random_numbers(key, len(text))
-  decryptedList = []
-  for t, s in zip(text, numbers):
-    decryptedList.append(chr(xor(ord(t), s)))
-  newText = ''.join(decryptedList)
-  return newText
-
 
 secret_key = 7876
 text = "Hello, world!"
 cryptedText = crypt(text, secret_key)
 print("Зашифрованный текст:", cryptedText)
-decryptedText = decrypt(cryptedText, secret_key)
+decryptedText = crypt(cryptedText, secret_key)
 print("Расшифрованный текст:", decryptedText)
